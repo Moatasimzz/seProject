@@ -144,4 +144,30 @@ cities = {
 cities["Beirout"].add_destination("Zahle")
 cities["Zahle"].add_destination("Baabda")
 cities["Baabda"].add_destination("Beirout")
-          
+
+def print_drivers_delivering_to_city(drivers, cities):
+    city_name = input("Enter the city name: ")
+    if city_name in cities:
+        visited = set()
+        reachable_cities = set()
+        queue = [city_name]
+
+        while queue:
+            current_city = queue.pop(0)
+            if current_city not in visited:
+                visited.add(current_city)
+                reachable_cities.add(current_city)
+                for destination in cities[current_city].destinations:
+                    if destination not in visited:
+                        queue.append(destination)
+
+        delivering_drivers = [driver for driver in drivers if driver.start_city in reachable_cities]
+
+        if delivering_drivers:
+            print(f"Drivers delivering to {city_name}:")
+            for driver in delivering_drivers:
+                print(driver)
+        else:
+            print(f"No drivers delivering to {city_name}")
+    else:
+        print(f"City {city_name} not found.")
