@@ -65,4 +65,15 @@ class Driver:
 
     def __str__(self):
         return f"Driver ID: {self.worker_id}, Name: {self.name}, Start City: {self.start_city}"
-               
+
+class City:
+    def __init__(self, name):
+        self.name = name
+        self.destinations = []
+
+    def add_destination(self, destination):
+        self.destinations.append(destination)
+    
+    def __str__(self):
+        destinations_str = ', '.join(self.destinations)
+        return f"City: {self.name}, Destinations: {destinations_str if destinations_str else 'None'}"            
