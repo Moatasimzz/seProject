@@ -111,4 +111,12 @@ def add_driver(drivers, cities):
     worker_id = f"ID{str(len(drivers) + 1).zfill(3)}"
     new_driver = Driver(worker_id, name, start_city)
     drivers.append(new_driver)
-    print(f"Driver {new_driver} has been added.")        
+    print(f"Driver {new_driver} has been added.")
+
+def show_cities(cities):
+    if cities:
+        print("CITIES LIST")
+        for city in cities.values():
+            print(city)
+    else:
+        print("No cities available.")        
