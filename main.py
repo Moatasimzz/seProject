@@ -80,7 +80,7 @@ class City:
 
 def view_drivers(drivers):
     if drivers:
-        print("DRIVERS LIST")
+        print("DRIVERS LIST :")
         for driver in drivers:
             print(driver)
     else:
@@ -126,7 +126,7 @@ def print_neighboring_cities(cities):
     if city_name in cities:
         city = cities[city_name]
         if city.destinations:
-            print(f"Neighboring cities to {city_name   }:")
+            print(f"Neighboring cities to {city_name }:")
             for destination in city.destinations:
                 print(destination)
         else:
