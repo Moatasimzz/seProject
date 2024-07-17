@@ -57,4 +57,12 @@ def cities_menu(drivers, cities):
         else:
             print("Invalid input !!, please try again :")
 
-            
+class Driver:
+    def __init__(self, worker_id, name, start_city):
+        self.worker_id = worker_id
+        self.name = name
+        self.start_city = start_city
+
+    def __str__(self):
+        return f"Driver ID: {self.worker_id}, Name: {self.name}, Start City: {self.start_city}"
+               
