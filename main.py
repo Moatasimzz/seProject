@@ -86,4 +86,29 @@ def view_drivers(drivers):
     else:
         print("No drivers available.")           
 
-        
+def add_driver(drivers, cities):
+    name = input("Enter the driver's name: ")
+    start_city = input("Enter the driver's start city: ")
+
+    if start_city not in cities:
+        add_city = input(f"{start_city} does not exist. Do you want to add it? (yes/no): ").strip().lower()
+        if add_city == "yes":
+            cities[start_city] = City(start_city)
+            print(f"{start_city} has been added.")
+        else:
+            print("Cannot add driver without a valid start city.")
+            return
+
+    while True:
+        destination_city = input(f"Enter a destination city for {start_city} (or 'done' to finish): ")
+        if destination_city.lower() == 'done':
+            break
+        if destination_city not in cities:
+            cities[destination_city] = City(destination_city)
+            print(f"{destination_city} has been added.")
+        cities[start_city].add_destination(destination_city)
+
+    worker_id = f"ID{str(len(drivers) + 1).zfill(3)}"
+    new_driver = Driver(worker_id, name, start_city)
+    drivers.append(new_driver)
+    print(f"Driver {new_driver} has been added.")        
