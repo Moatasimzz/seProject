@@ -50,7 +50,7 @@ def cities_menu(drivers, cities):
         elif choice == "2":
             print_neighboring_cities(cities)
         elif choice == "3":
-            print_drivers_delivering_to_city(drivers, cities)
+            print_drivers(drivers, cities)
         elif choice == "4":
             print("Going back to main menu...")
             break
@@ -58,13 +58,13 @@ def cities_menu(drivers, cities):
             print("Invalid input !!, please try again :")
 
 class Driver:
-    def __init__(self, worker_id, name, start_city):
-        self.worker_id = worker_id
+    def __init__(self, delivery_id, name, start_city):
+        self.delivery_id = delivery_id
         self.name = name
         self.start_city = start_city
 
     def __str__(self):
-        return f"Driver ID: {self.worker_id}, Name: {self.name}, Start City: {self.start_city}"
+        return f"Driver ID: {self.delivery_id}, Name: {self.name}, Start City: {self.start_city}"
 
 class City:
     def __init__(self, name):
@@ -108,8 +108,8 @@ def add_driver(drivers, cities):
             print(f"{destination_city} has been added.")
         cities[start_city].add_destination(destination_city)
 
-    worker_id = f"ID{str(len(drivers) + 1).zfill(3)}"
-    new_driver = Driver(worker_id, name, start_city)
+    delivery_id = f"ID{str(len(drivers) + 1).zfill(3)}"
+    new_driver = Driver(delivery_id, name, start_city)
     drivers.append(new_driver)
     print(f"Driver {new_driver} has been added.")
 
@@ -119,7 +119,7 @@ def show_cities(cities):
         for city in cities.values():
             print(city)
     else:
-        print("No cities available.")  
+        print("No cities available. ")  
 
 def print_neighboring_cities(cities):
     city_name = input("Enter the city name: ")
@@ -149,7 +149,7 @@ cities["Beirut"].add_destination("Zahli")
 cities["Zahli"].add_destination("Baabda")
 cities["Baabda"].add_destination("Beirut")
 
-def print_drivers_delivering_to_city(drivers, cities):
+def print_drivers(drivers, cities):
     city_name = input("Enter the city name: ")
     if city_name in cities:
         visited = set()
