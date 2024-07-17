@@ -134,7 +134,11 @@ def print_neighboring_cities(cities):
     else:
         print(f"City {city_name} not found.") 
 
-drivers = []
+drivers = [
+    Driver("ID001", "Max Verstappen", "Akkar"),
+    Driver("ID002", "Charles Leclerc", "Saida"),
+    Driver("ID003", "Lando Norris", "Jbeil"),
+]
 cities = {
     "Beirout": City("Beirout"),
     "Zahle": City("Zahle"),
@@ -171,6 +175,6 @@ def print_drivers_delivering_to_city(drivers, cities):
             print(f"No drivers delivering to {city_name}")
     else:
         print(f"City {city_name} not found.")
-        
+
 if __name__ == "__main__":
     main_menu(drivers, cities)
