@@ -76,4 +76,14 @@ class City:
     
     def __str__(self):
         destinations_str = ', '.join(self.destinations)
-        return f"City: {self.name}, Destinations: {destinations_str if destinations_str else 'None'}"            
+        return f"City: {self.name}, Destinations: {destinations_str if destinations_str else 'None'}"
+
+def view_drivers(drivers):
+    if drivers:
+        print("DRIVERS LIST")
+        for driver in drivers:
+            print(driver)
+    else:
+        print("No drivers available.")           
+
+        
