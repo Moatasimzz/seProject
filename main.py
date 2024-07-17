@@ -119,4 +119,19 @@ def show_cities(cities):
         for city in cities.values():
             print(city)
     else:
-        print("No cities available.")        
+        print("No cities available.")  
+
+def print_neighboring_cities(cities):
+    city_name = input("Enter the city name: ")
+    if city_name in cities:
+        city = cities[city_name]
+        if city.destinations:
+            print(f"Neighboring cities to {city_name   }:")
+            for destination in city.destinations:
+                print(destination)
+        else:
+            print(f"No neighboring cities found for {city_name}")
+    else:
+        print(f"City {city_name} not found.") 
+
+          
