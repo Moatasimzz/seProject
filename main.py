@@ -140,14 +140,14 @@ drivers = [
     Driver("ID003", "Lando Norris", "Jbeil"),
 ]
 cities = {
-    "Beirout": City("Beirout"),
-    "Zahle": City("Zahle"),
+    "Beirut": City("Beirut"),
+    "Zahli": City("Zahli"),
     "Baabda": City("Baabda"),
 }
 
-cities["Beirout"].add_destination("Zahle")
-cities["Zahle"].add_destination("Baabda")
-cities["Baabda"].add_destination("Beirout")
+cities["Beirut"].add_destination("Zahli")
+cities["Zahli"].add_destination("Baabda")
+cities["Baabda"].add_destination("Beirut")
 
 def print_drivers_delivering_to_city(drivers, cities):
     city_name = input("Enter the city name: ")
