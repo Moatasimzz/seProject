@@ -134,4 +134,14 @@ def print_neighboring_cities(cities):
     else:
         print(f"City {city_name} not found.") 
 
+drivers = []
+cities = {
+    "Beirout": City("Beirout"),
+    "Zahle": City("Zahle"),
+    "Baabda": City("Baabda"),
+}
+
+cities["Beirout"].add_destination("Zahle")
+cities["Zahle"].add_destination("Baabda")
+cities["Baabda"].add_destination("Beirout")
           
